@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+HISTFILE=$HOME/.zsh_history
 
 . /sas/tools/com/sdszshrc
 
