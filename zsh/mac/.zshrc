@@ -1,17 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export ZSH_DISABLE_COMPFIX=false
-
+source ~/dotfiles/.zshrc
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/zamars/.oh-my-zsh
 EDITOR=mate
 GIT_EDITOR="mate -w"
 M2_HOME=$(cd $(dirname $(echo $(dirname $(which mvn))/$(readlink $(which mvn))))/../; pwd)
 export JAVA_HOME=$(/usr/libexec/java_home)
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="zagnoster2"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -55,7 +51,7 @@ ZSH_THEME="zagnoster2"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx colorize mvn gradle vagrant branch colored-man-pages colorize dircycle dirhistory docker docker-compose gradle)
+plugins+=(osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,15 +84,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export DEFAULT_USER=zamars
-export GOPATH=$HOME/dev/go
-export GO15VENDOREXPERIMENT=1
-export PATH="$GOPATH/bin:$PATH:$HOME/bin"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export WORKON_HOME=~/python/envs
 source /usr/local/bin/virtualenvwrapper.sh
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
-LESS="$LESS -q"
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 eval "$(rbenv init -)"
 alias la="exa -l"
