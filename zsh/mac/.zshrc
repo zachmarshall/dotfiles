@@ -120,6 +120,7 @@ alias la="exa -l"
 alias ls="colorls --gs"
 alias l="colorls -l --gs"
 alias ll="colorls -l --gs"
+alias k=kubectl
 function c() {
     [ -n "$1" ] && pygmentize -O style=monokai -f console256 -g $1 | less
 }
