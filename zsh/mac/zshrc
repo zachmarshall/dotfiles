@@ -1,4 +1,9 @@
 # export ZSH_DISABLE_COMPFIX=false
+ME_PATH=${(%):-%x}
+# requres perl
+ME_REAL=$(perl -MCwd -le 'print Cwd::abs_path(shift)' "$ME_PATH")
+ME_REAL_DIR=$(dirname $ME_REAL)
+[[ -f $ME_REAL_DIR/../common/zshrc ]] && source $ME_REAL_DIR/../common/zshrc
 
 export EDITOR=mate
 export VISUAL=mate
@@ -16,4 +21,8 @@ source $ZSH/oh-my-zsh.sh
 export GO15VENDOREXPERIMENT=1
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
-
+export HOMEBREW_NO_UPDATE_CLEANUP=1
+brewprefix=/usr/local/brew
+export PATH="$brewprefix/bin:$brewprefix/sbin:$PATH"
+export MANPATH="$brewprefix/share/man:$MANPATH"
+unset brewprefix

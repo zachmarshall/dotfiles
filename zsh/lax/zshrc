@@ -1,0 +1,12 @@
+# export ZSH_DISABLE_COMPFIX=false
+ME_PATH=${(%):-%x}
+# requres perl
+ME_REAL=$(perl -MCwd -le 'print Cwd::abs_path(shift)' "$ME_PATH")
+ME_REAL_DIR=$(dirname $ME_REAL)
+[[ -f $ME_REAL_DIR/../common/zshrc ]] && source $ME_REAL_DIR/../common/zshrc
+
+plugins=($COMMON_PLUGINS)
+
+source $ZSH/oh-my-zsh.sh
+
+export GO15VENDOREXPERIMENT=1
