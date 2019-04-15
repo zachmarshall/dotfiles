@@ -3,10 +3,17 @@ ME_PATH=${(%):-%x}
 # requres perl
 ME_REAL=$(perl -MCwd -le 'print Cwd::abs_path(shift)' "$ME_PATH")
 ME_REAL_DIR=$(dirname $ME_REAL)
+# Next two parameters are based on the assumption that the current file is sourced
+# from a specific location in the dotfiles directory
 [[ -f $ME_REAL_DIR/../common/zshrc ]] && source $ME_REAL_DIR/../common/zshrc
+export DOTFILES_DIR=$ME_REAL_DIR/../..
 
 plugins=($COMMON_PLUGINS)
 
 source $ZSH/oh-my-zsh.sh
 
 export GO15VENDOREXPERIMENT=1
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
